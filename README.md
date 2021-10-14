@@ -1,45 +1,46 @@
+
 # Code Challenge
 
-## 💻Task 1 -  Stepper form 
-Your task is to create an account application stepper formand it's backend APIs. 
-You can use any UI library or node.js backend framework/database. 
+Your task is to create a full-stack application with 3 pages
+
+## 📄Page 1 -  New Article Page 
+
+An article should have at least title, author, content(text), date
 
 ###  ✨Features: 
-- Has 2 steps: 1️⃣`Contact Person` 2️⃣`Personal Details`
-- User can save/update applicant's information to your backend
-- If is editing, pre-populate form with data from your API
-- `Next`/`Previous` button for navigation, but only enable `Next` when current form is not in error
+- User can save new article to your backend
+- Each input field has validation and helper text
+- Only enabled `Save` button when current form is not in error
 
-### 🎯Required techs: 
-- React
-- Node.js
--  TypeScript
-
-#### ⭐Bouns:
-- Add form validation for each step
-- Use Material UI + Nest.js
-- Use global state
-- Write a couple of tests
-
-## 💻Task 2 - League Table
-Your task is to create a table component to display fx 💱`symbol prices` from some 🏦`brokers`.
-You can use any UI library, any node.js backend framework/database.
+## 📄Page 2 - Latest Article Page
 
 ###  ✨Features: 
-- Receive data from prop
-- Automatically refresh every 5 seconds
-- Displaying loading sign inside the table when data is fetching/refetching
-- Displaying rank value/color inside each table cell
+- it should display the full content of the 4 latest articles
+- clicking on an article title should lead to the `Article Page`
+- display the titles of all older articles, leading to the `Article Page`
 
-### 🎯Required techs: 
-- Vue.js
+## 📄Page 3 - Article Page
+
+###  ✨Features: 
+- it should display the full content of an article
+- it should be shareable by URL (e.g. https://example.com/articles/my-favourite-article)
+- it should display a link leading to the `Latest Articles Page`
+
+## 🎯Required techs: 
+
+- React/Vue.js
 - TypeScript
-- Graphql
+- Grapqhql
+- Node.js + Apollo server
 
-#### ⭐Bouns:
-- Use BootstrapVue + Nest.js
+### ⭐Bouns:
+
+- Use static site generation
+- Use Nest.js as backend
+- Use Material UI / BootStrap
 - Use global state
 - Write a couple of tests
+
 
 ## Handover
 
