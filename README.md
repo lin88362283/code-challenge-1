@@ -39,12 +39,12 @@ Your task is to create a demo full-stack blog application with 3 pages
 
 - React/Vue.js
 - TypeScript
-- Grapqhql
-- Node.js + Apollo server
+- Graphql
+- Node.js
 
 ### ⭐Bouns:
 
-- use Nest.js as backend
+- use Nest.js + Apollo server
 - use Material UI / BootStrap
 - use static site generation
 - use ORM to manipulate database
