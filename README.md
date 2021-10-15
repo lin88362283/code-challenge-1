@@ -1,13 +1,21 @@
 
 # Code Challenge
 
-Your task is to create a demo full-stack application with 3 pages
+Your task is to create a demo full-stack blog application with 3 pages
 
-## 📄Page 1 -  New Article Page 
+## 📄Page 1 -  Management Page 
 
 ###  ✨Features: 
-- a new article has: `*title`(text), `*author name`(text), `*author country`(autocomplete select), `category`(select), `*content`(multiline text) and `*created at`(date picker)
-- user can save new article to your backend
+- input areas for creating new article: 
+  - `*title`(text)
+  - `*author name`(text)
+  - `*author country`(autocomplete select)
+  - `*category`(select)
+  - `*content`(multiline text)
+  - `*created at`(date picker)
+- input areas for creating new category: 
+  - `*category name`(text), an article can have multiple categories
+- user can save new article/category to your backend
 - each input field has validation and helper text
 - only enabled `Save` button when the required fields are not in error
 
