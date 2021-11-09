@@ -1,5 +1,5 @@
 {
-  "name": "full-stack-blog",
+  "name": "code-challenge-1",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -28,6 +28,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "apollo-server-express": "^3.5.0",
     "graphql": "^15.7.2",
+    "graphql-tools": "^8.2.0",
     "mongoose": "^6.0.12",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
