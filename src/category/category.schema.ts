@@ -1,33 +1,21 @@
 import { Field, ObjectType, ID, InputType } from '@nestjs/graphql';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
 
+export type CategoryDocument = Category & mongoose.Document;
+@Schema()
 @ObjectType()
 export class Category {
   @Field(() => ID)
-  id: string;
+  _id: string;
 
   @Field()
   name: string;
 }
 
+export const CategorySchema = SchemaFactory.createForClass(Category);
 @InputType()
 export class CreateCategoryInput {
-  @Field(() => ID)
-  id: string;
-
   @Field()
-  title: string;
-
-  // @Field(() => [Int])
-  // categories: number[];
-  @Field(() => [ID])
-  categories: string[];
-
-  @Field()
-  authorCountry: string;
-
-  @Field()
-  authorName: string;
-
-  @Field()
-  content: string;
+  name: string;
 }

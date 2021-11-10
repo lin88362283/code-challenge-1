@@ -1,16 +1,32 @@
-import { Field, ObjectType, ID, InputType, Int } from '@nestjs/graphql';
+import {
+  Field,
+  ObjectType,
+  ID,
+  InputType,
+  GraphQLISODateTime,
+} from '@nestjs/graphql';
+import * as mongoose from 'mongoose';
 import { Category } from 'src/category/category.schema';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
+export type ArticleDocument = Article & mongoose.Document;
+
+@Schema()
 @ObjectType()
 export class Article {
+  // TODO:可能不需要
   @Field(() => ID)
-  id: string;
+  _id: string;
 
+  // @Prop({ required: true })
   @Field()
   title: string;
 
+  @Prop({
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: Category.name }],
+  })
   @Field(() => [Category])
-  categories: Category[];
+  categories: Category[] | string[];
 
   @Field()
   authorCountry: string;
@@ -22,15 +38,15 @@ export class Article {
   content: string;
 
   // TODO
-  @Field()
+  @Prop({ type: mongoose.Schema.Types.Date, default: Date.now })
+  @Field(() => GraphQLISODateTime)
   createdAt: string;
 }
 
+export const ArticleSchema = SchemaFactory.createForClass(Article);
+
 @InputType()
 export class CreateArticleInput {
-  @Field(() => ID)
-  id: string;
-
   @Field()
   title: string;
 

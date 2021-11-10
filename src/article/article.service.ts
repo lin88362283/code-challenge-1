@@ -1,21 +1,32 @@
 import { Injectable } from '@nestjs/common';
-import { Article, CreateArticleInput } from './article.schema';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import {
+  Article,
+  CreateArticleInput,
+  ArticleDocument,
+  FindArticlesWithPaginationInput,
+} from './article.schema';
 @Injectable()
 export class ArticleService {
-  // TODO: partial
-  articles: Partial<Article>[];
-  constructor() {
-    // 从数据库拿的
-    this.articles = articles;
-  }
+  constructor(
+    @InjectModel(Article.name) private articleModel: Model<ArticleDocument>,
+  ) {}
   async findAllTitles() {
-    return this.articles.map((article) => article.title);
+    return this.articleModel.find({}, 'title').lean();
   }
-  async findWithPagination(pageSize: number, pageNumber: number) {
-
+  async findWithPagination({
+    pageSize,
+    pageNumber,
+  }: FindArticlesWithPaginationInput) {
+    return this.articleModel
+      .find()
+      .sort({ createdAt: 'desc' })
+      .limit(pageSize)
+      .skip(pageNumber * pageSize)
+      .lean();
   }
   async createArticle(article: CreateArticleInput) {
-    this.articles = [article, ...this.articles];
-    return article;
+    return this.articleModel.create(article);
   }
 }

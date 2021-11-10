@@ -1,17 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { Category, CreateCategory } from './category.schema'
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import {
+  Category,
+  CreateCategoryInput,
+  CategoryDocument,
+} from './category.schema';
 @Injectable()
 export class CategoryService {
-  categories: Partial<Category>[];
-  constructor() {
-    // 从数据库拿的
-    this.categories = categoriesData;
-  }
+  constructor(
+    @InjectModel(Category.name) private categoryModel: Model<CategoryDocument>,
+  ) {}
   async findAll() {
-    return this.categories;
+    return this.categoryModel.find().lean();
   }
-  async createCategory(category: CreateCategory) {
-    this.categories = [...this.categories, category];
-    return category;
+  async findById(_id) {
+    return this.categoryModel.findById(_id).lean();
+  }
+
+  async createCategory(category: CreateCategoryInput) {
+    return this.categoryModel.create(category);
   }
 }
