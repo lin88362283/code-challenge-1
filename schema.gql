@@ -1,0 +1,20 @@
+# scalar Date
+
+# type Article {
+#   id: ID!
+#   title: String
+#   categories: [Category!]
+#   authorCountry: String
+#   authorName: String
+#   createdAt: Date
+#   content: String
+# }
+# # *author country(autocomplete select)
+# # *category(select)
+# # *content(multiline text)
+# # *created at(date picker)
+
+# type Category {
+#   id: ID!
+#   name: String!
+# }
