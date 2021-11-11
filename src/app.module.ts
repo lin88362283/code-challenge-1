@@ -16,7 +16,6 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
       autoSchemaFile: 'schema.gql',
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
-      // typePaths: ['./**/*.graphql']
     }),
     ArticleModule,
     CategoryModule,

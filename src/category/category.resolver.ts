@@ -9,7 +9,7 @@ export class CategoryResolver {
     return this.categoryService.findAll();
   }
   @Mutation(() => Category)
-  async createCategory(@Args('input') category: CreateCategoryInput) {
-    return this.categoryService.createCategory(category);
+  async createCategory(@Args('input') input: CreateCategoryInput) {
+    return this.categoryService.createCategory(input);
   }
 }

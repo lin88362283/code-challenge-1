@@ -9,6 +9,7 @@ export class Category {
   @Field(() => ID)
   _id: string;
 
+  @Prop()
   @Field()
   name: string;
 }

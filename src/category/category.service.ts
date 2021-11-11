@@ -18,7 +18,7 @@ export class CategoryService {
     return this.categoryModel.findById(_id).lean();
   }
 
-  async createCategory(category: CreateCategoryInput) {
-    return this.categoryModel.create(category);
+  async createCategory(input: CreateCategoryInput) {
+    return this.categoryModel.create(input);
   }
 }
