@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  _id: ID!
+  name: String!
+}
+
+type Article {
+  _id: ID!
+  title: String!
+  categories: [Category!]!
+  authorCountry: String!
+  authorName: String!
+  content: String!
+  createdAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  articles(input: FindArticlesWithPaginationInput!): [Article!]!
+  articlesTitle: [Article!]!
+  categories: [Category!]!
+}
+
+input FindArticlesWithPaginationInput {
+  pageSize: Float!
+  pageNumber: Float!
+}
+
+type Mutation {
+  createArticle(input: CreateArticleInput!): Article!
+  createCategory(input: CreateCategoryInput!): Category!
+}
+
+input CreateArticleInput {
+  title: String!
+  categories: [ID!]!
+  authorCountry: String!
+  authorName: String!
+  content: String!
+  createdAt: String!
+}
+
+input CreateCategoryInput {
+  name: String!
+}
